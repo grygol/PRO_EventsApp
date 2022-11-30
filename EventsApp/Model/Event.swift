@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct Event: Codable, Identifiable {
 
@@ -48,5 +49,7 @@ struct Event: Codable, Identifiable {
 struct Geo: Codable {
 
     let lat, lng: String
+    
+    var location : CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: try! Double(lat, format: .number), longitude: try! Double(lat, format: .number)) }
 
 }
